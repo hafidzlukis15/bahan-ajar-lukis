@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bahan Ajar Lukis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F7FB;--surface:#FFFFFF;--ink:#1B2233;--mute:#5A6378;--line:#DDE1EC;--blue:#2B44B5;--rose:#C13B5A;--ochre:#C98F0C;--green:#1B7F68;--blue-soft:#E4E8FA;--ok:#E1F3EC;--bad:#FBE5EA;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12151F;--surface:#1B2030;--ink:#EDF0F8;--mute:#A3ABC0;--line:#2D3449;--blue:#8EA2FF;--rose:#F27C97;--ochre:#EBB73F;--green:#5FCDB0;--blue-soft:#242B4A;--ok:#17382F;--bad:#43202B;color-scheme:dark}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.65 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:'Bricolage Grotesque',Figtree,sans-serif;line-height:1.15;margin:0 0 .5em}
+h2{font-size:clamp(1.6rem,4vw,2.2rem)}
+h3{font-size:1.2rem}
+p{margin:0 0 1em;max-width:68ch}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+section{padding:56px 0 8px}
+header.hero{padding:56px 0 40px;border-bottom:1px solid var(--line)}
+h1{font-size:clamp(2.3rem,8vw,4.4rem);font-weight:800;letter-spacing:-.02em;max-width:14ch}
+.lead{font-size:1.15rem;color:var(--mute)}
+.swatches{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+.swatches span{width:44px;height:44px;border-radius:50% 50% 50% 8px;display:block}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}
+nav a{padding:8px 14px;border:1px solid var(--line);border-radius:99px;text-decoration:none;color:var(--ink);background:var(--surface);font-weight:500;font-size:.95rem}
+nav a:hover{border-color:var(--blue)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.goals{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--blue);border-radius:6px;padding:18px 22px;margin-top:28px}
+.goals ul{margin:.4em 0 0;padding-left:1.2em}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px}
+.tabs button,.chip{font:inherit;font-weight:500;font-size:.95rem;padding:9px 14px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;white-space:nowrap}
+.tabs button[aria-selected="true"],.chip[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button[aria-selected="true"],:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#101426}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;margin-top:8px}
+.panel .meta{color:var(--rose);font-weight:600;margin-bottom:6px}
+.panel dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 16px;margin:16px 0 0}
+.panel dt{font-weight:600;color:var(--mute)}.panel dd{margin:0}
+.art{border-radius:8px;overflow:hidden;margin-bottom:16px;max-width:440px}.art svg{display:block;width:100%;height:auto}.card .art{margin-bottom:12px;max-width:none}.idc{display:inline-block;margin-top:20px;padding:12px 18px;border:1px solid var(--line);border-left:6px solid var(--rose);border-radius:6px;background:var(--surface);line-height:1.4}.idc strong{font-family:'Bricolage Grotesque',sans-serif;font-size:1.15rem}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;border-top:5px solid var(--c)}
+.card p{margin:0;font-size:1rem}
+.card .tag{font-weight:600;color:var(--mute);font-size:.9rem;margin-bottom:8px}
+.studio{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.dot{width:32px;height:32px;border-radius:50%;border:3px solid var(--surface);box-shadow:0 0 0 1px var(--line);cursor:pointer;padding:0}
+.dot[aria-pressed="true"]{box-shadow:0 0 0 3px var(--ink)}
+canvas{width:100%;height:auto;aspect-ratio:16/9;background:#FFFEFA;border:1px solid var(--line);border-radius:8px;touch-action:none;cursor:crosshair;display:block}
+.hint{color:var(--mute);font-size:.95rem;margin:12px 0 0}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px}
+.opts{display:grid;gap:8px;margin:14px 0}
+.opts button{font:inherit;text-align:left;padding:12px 14px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.opts button:hover:not(:disabled){border-color:var(--blue)}
+.opts .right{background:var(--ok);border-color:var(--green)}
+.opts .wrong{background:var(--bad);border-color:var(--rose)}
+.fb{min-height:1.6em;font-weight:500}
+.btn{font:inherit;font-weight:600;padding:10px 20px;border-radius:8px;border:0;background:var(--blue);color:#fff;cursor:pointer}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn{color:#101426}}
+.prog{height:6px;background:var(--line);border-radius:3px;margin-bottom:16px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--green);width:0;transition:width .3s}
+.score{font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;font-weight:800;margin:0}
+footer{margin-top:64px;padding:28px 0 40px;border-top:1px solid var(--line);color:var(--mute);font-size:.95rem}
+@media (prefers-reduced-motion:no-preference){.hero h1{animation:rise .7s ease both}@keyframes rise{from{opacity:0;transform:translateY(10px)}}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <h1>Teknik dan Sejarah Seni Lukis</h1>
+  <p class="lead">Media pembelajaran Seni Rupa untuk siswa SMP Kelas VIII. Jelajahi perjalanan seni lukis dari gua prasejarah sampai pelukis Indonesia, lalu coba sendiri teknik melukisnya.</p>
+  <div class="swatches" aria-hidden="true"><span style="background:var(--blue)"></span><span style="background:var(--rose)"></span><span style="background:var(--ochre)"></span><span style="background:var(--green)"></span></div>
+  <nav aria-label="Menu halaman"><a href="#tujuan">Tujuan</a><a href="#sejarah">Sejarah</a><a href="#teknik">Teknik</a><a href="#studio">Studio coba</a><a href="#kuis">Kuis</a></nav>
+</div></header>
+
+<main class="wrap">
+<section id="tujuan">
+  <h2>Yang akan kamu pelajari</h2>
+  <div class="goals"><p style="margin:0"><strong>Setelah belajar, kamu mampu:</strong></p>
+  <ul><li>menjelaskan perkembangan seni lukis dari masa ke masa, di dunia dan di Indonesia;</li><li>membedakan teknik melukis transparan, opaque, impasto, dan pointilis;</li><li>mencoba teknik tersebut dalam karya sederhana.</li></ul></div>
+</section>
+
+<section id="sejarah">
+  <h2>Sejarah seni lukis</h2>
+  <p>Pilih satu periode untuk membaca cirinya. Urutannya dari yang paling tua.</p>
+  <div class="tabs" role="tablist" id="tabs" aria-label="Periode sejarah"></div>
+  <div class="panel" id="panel" role="tabpanel" aria-live="polite"></div>
+</section>
+
+<section id="teknik">
+  <h2>Teknik melukis</h2>
+  <p>Teknik ditentukan oleh jenis cat dan cara menorehkannya. Perhatikan apakah warna di bawahnya masih terlihat atau tertutup.</p>
+  <div class="grid">
+    <div class="card" style="--c:var(--blue)"><div class="art" data-t="0"></div><div class="tag">Transparan</div><h3>Akuarel</h3><p>Cat air diencerkan, sapuannya tipis sehingga warna kertas dan lapisan bawah masih tembus. Bagian putih dibiarkan kosong.</p></div>
+    <div class="card" style="--c:var(--rose)"><div class="art" data-t="1"></div><div class="tag">Opaque</div><h3>Plakat</h3><p>Cat poster dipakai pekat dan menutupi lapisan di bawahnya. Kesalahan mudah ditimpa dengan warna baru.</p></div>
+    <div class="card" style="--c:var(--ochre)"><div class="art" data-t="2"></div><div class="tag">Tebal</div><h3>Impasto</h3><p>Cat minyak atau akrilik ditumpuk tebal hingga tampak tekstur bekas kuas atau palet. Dipakai Van Gogh.</p></div>
+    <div class="card" style="--c:var(--green)"><div class="art" data-t="3"></div><div class="tag">Titik</div><h3>Pointilis</h3><p>Gambar dibentuk dari titik-titik kecil warna murni. Dari jauh, mata kita yang mencampur warnanya.</p></div>
+  </div>
+</section>
+
+<section id="studio">
+  <h2>Studio coba</h2>
+  <p>Pilih teknik dan warna, lalu lukis di kanvas. Perhatikan bedanya saat sapuan bertumpuk.</p>
+  <div class="studio">
+    <div class="tools" role="group" aria-label="Teknik">
+      <button class="chip" data-m="akuarel" aria-pressed="true">Akuarel</button>
+      <button class="chip" data-m="plakat" aria-pressed="false">Plakat</button>
+      <button class="chip" data-m="pointilis" aria-pressed="false">Pointilis</button>
+      <button class="chip" data-m="hapus" aria-pressed="false">Penghapus</button>
+      <button class="chip" id="clr" aria-pressed="false">Bersihkan kanvas</button>
+    </div>
+    <div class="tools" id="cols" role="group" aria-label="Warna"></div>
+    <canvas id="cv" width="800" height="450" aria-label="Kanvas lukis"></canvas>
+    <p class="hint" id="mh"></p>
+  </div>
+</section>
+
+<section id="kuis">
+  <h2>Kuis akhir</h2>
+  <div class="q" id="quiz"></div>
+</section>
+</main>
+
+<footer><div class="wrap">Bahan ajar lukis, Seni Rupa Fase D (Kelas VIII).</div></footer>
+
+<script>
+const eras=[
+{n:"Prasejarah",t:"Puluhan ribu tahun lalu",h:"Lukisan gua dan cap tangan",d:"Manusia purba melukis di dinding gua dengan pigmen alami seperti oker merah. Di Indonesia, contoh terkenalnya ada di Leang-Leang, Maros-Pangkep, Sulawesi Selatan: cap tangan dan gambar babi rusa.",k:["Bahan alami (oker, arang)","Tangan sebagai alat","Gambar hewan buruan dan cap tangan"],p:"Pelukis tak dikenal"},
+{n:"Renaisans",t:"Abad ke-14 sampai ke-16",h:"Lahir kembali ilmu dan seni",d:"Pelukis mempelajari anatomi dan perspektif agar gambar tampak nyata dan berkedalaman. Cat minyak mulai populer.",k:["Perspektif","Sfumato (peralihan warna lembut)","Objek realistis"],p:"Leonardo da Vinci (Mona Lisa), Michelangelo"},
+{n:"Barok",t:"Abad ke-17",h:"Dramatis dan penuh kontras",d:"Lukisan memakai kontras gelap dan terang yang tajam (chiaroscuro) untuk menciptakan suasana dramatis.",k:["Chiaroscuro","Gerak dan emosi kuat","Warna kaya"],p:"Rembrandt, Caravaggio"},
+{n:"Impresionisme",t:"Akhir abad ke-19",h:"Menangkap kesan cahaya",d:"Pelukis keluar ruangan dan melukis cepat untuk menangkap kesan cahaya sesaat. Sapuan kuas terlihat jelas, bentuk tidak dirinci.",k:["Sapuan kuas pendek","Fokus pada cahaya","Melukis di luar ruang (plein air)"],p:"Claude Monet, Pierre-Auguste Renoir"},
+{n:"Pasca-impresionisme",t:"Akhir abad ke-19",h:"Perasaan lewat warna dan sapuan",d:"Pelukis menonjolkan perasaan pribadi dan struktur gambar. Dari sinilah teknik impasto dan pointilis berkembang.",k:["Impasto tebal","Pointilis (Georges Seurat)","Warna ekspresif"],p:"Vincent van Gogh (The Starry Night), Paul Cézanne"},
+{n:"Kubisme",t:"Awal abad ke-20",h:"Objek dipecah jadi bentuk geometris",d:"Objek digambar dari banyak sudut pandang sekaligus dengan bidang-bidang geometris, sehingga tidak lagi meniru bentuk nyata.",k:["Bentuk geometris","Banyak sudut pandang","Warna terbatas"],p:"Pablo Picasso, Georges Braque"},
+{n:"Indonesia",t:"Abad ke-19 sampai kini",h:"Dari Raden Saleh sampai Affandi",d:"Raden Saleh membawa gaya Romantik Eropa lewat karya Penangkapan Pangeran Diponegoro. Pada masa Mooi Indie pelukis sering menggambar pemandangan indah. Tahun 1938 PERSAGI dibentuk dan S. Sudjojono mendorong lukisan yang jujur tentang kehidupan rakyat. Affandi dikenal dengan gaya ekspresif, melukis dengan cat yang ditekan langsung dari tube.",k:["Romantisme (Raden Saleh)","Mooi Indie","PERSAGI (1938)","Ekspresionisme (Affandi)"],p:"Raden Saleh, S. Sudjojono, Affandi"}
+];
+const tabs=document.getElementById('tabs'),panel=document.getElementById('panel');
+const svg=(s,n,h)=>'<svg viewBox="0 0 240 '+(h||120)+'" role="img" aria-label="Ilustrasi '+n+'">'+s+'</svg>';
+const arts=[
+'<rect width="240" height="120" fill="#7A5240"/><circle cx="90" cy="70" r="24" fill="#B5412D"/><g stroke="#B5412D" stroke-width="9" stroke-linecap="round"><path d="M72 58L64 28M84 52L82 20M97 52L102 22M109 60L121 34M70 78L50 72"/></g><ellipse cx="175" cy="78" rx="30" ry="16" fill="#E8D5B0" opacity=".85"/><circle cx="150" cy="68" r="9" fill="#E8D5B0" opacity=".85"/><path d="M200 90v14M185 92v14M165 92v14M152 88v14" stroke="#E8D5B0" stroke-width="5"/>',
+'<rect width="240" height="120" fill="#EADFC8"/><path d="M0 0L120 55M240 0L120 55M0 120L120 65M240 120L120 65M0 60H240" stroke="#8A6A3A" stroke-width="1.5"/><rect x="100" y="40" width="40" height="30" fill="#2B44B5" opacity=".6"/><circle cx="120" cy="52" r="6" fill="#C13B5A"/>',
+'<defs><radialGradient id="g2" cx=".4" cy=".4" r=".7"><stop offset="0" stop-color="#F3C77A"/><stop offset="1" stop-color="#14100C"/></radialGradient></defs><rect width="240" height="120" fill="url(#g2)"/><circle cx="95" cy="55" r="20" fill="#E9B888"/><path d="M60 120Q95 70 130 120Z" fill="#2a1a12"/>',
+'<rect width="240" height="120" fill="#C9DCEB"/><rect y="70" width="240" height="50" fill="#5E86B8"/><circle cx="150" cy="48" r="16" fill="#E9783A"/><g stroke="#F4B183" stroke-width="3" stroke-linecap="round"><path d="M135 78h30M140 86h22M130 94h40"/></g><g stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".7"><path d="M20 30h26M60 20h20M190 28h30M30 50h18"/></g>',
+'<rect width="240" height="120" fill="#1D2B6B"/><g fill="none" stroke-width="3"><path d="M10 40q30-30 60 0t60 0t60 0t40-10" stroke="#7BA3E8"/><path d="M10 62q30-30 60 0t60 0t60 0t40-10" stroke="#4E6FCC"/></g><circle cx="190" cy="25" r="12" fill="#F6D860"/><path d="M0 120V95Q40 70 60 95V120Z" fill="#0E1535"/>',
+'<rect width="240" height="120" fill="#E6DCC8"/><polygon points="60,10 130,20 120,110 50,100" fill="#C98F0C"/><polygon points="120,20 190,15 200,105 120,110" fill="#2B44B5" opacity=".85"/><polygon points="90,45 125,50 120,75 85,70" fill="#C13B5A"/><polygon points="130,55 165,50 160,80 125,80" fill="#1B7F68"/>',
+'<rect width="240" height="120" fill="#F3D9A0"/><path d="M0 70L70 25L140 70Z" fill="#3E7A5A"/><path d="M80 70L160 15L240 70Z" fill="#2E5F47"/><circle cx="40" cy="24" r="12" fill="#E9783A"/><rect y="70" width="240" height="50" fill="#8DB556"/><path d="M0 85h240M0 100h240" stroke="#6E9A3E" stroke-width="3"/>'
+];
+function show(i){
+  [...tabs.children].forEach((b,j)=>b.setAttribute('aria-selected',j===i));
+  const e=eras[i];
+  panel.innerHTML='<div class="art">'+svg(arts[i],e.n)+'</div><div class="meta">'+e.t+'</div><h3>'+e.h+'</h3><p>'+e.d+'</p><dl><dt>Ciri khas</dt><dd>'+e.k.join(', ')+'</dd><dt>Tokoh/contoh</dt><dd>'+e.p+'</dd></dl>';
+}
+eras.forEach((e,i)=>{const b=document.createElement('button');b.role='tab';b.textContent=e.n;b.onclick=()=>show(i);tabs.appendChild(b)});
+show(0);
+const P='<rect width="240" height="90" fill="#FFFEFA"/>';
+let pd='';for(let i=0;i<90;i++){const x=(i*47%230)+5,y=(i*29%80)+5;pd+='<circle cx="'+x+'" cy="'+y+'" r="3.2" fill="'+['#2B44B5','#C13B5A','#E0A81C','#1B7F68'][i%4]+'"/>'}
+const techArts=[
+ P+'<circle cx="90" cy="45" r="34" fill="#2B44B5" opacity=".4"/><circle cx="130" cy="45" r="34" fill="#C13B5A" opacity=".4"/><circle cx="110" cy="62" r="30" fill="#E0A81C" opacity=".4"/>',
+ P+'<circle cx="90" cy="45" r="34" fill="#2B44B5"/><circle cx="130" cy="45" r="34" fill="#C13B5A"/><circle cx="110" cy="62" r="30" fill="#E0A81C"/>',
+ '<rect width="240" height="90" fill="#E9D8A6"/><g fill="none" stroke-linecap="round" stroke-width="11"><path d="M15 25q50-25 100 0t110-5" stroke="#2B44B5"/><path d="M15 50q50-25 100 0t110-5" stroke="#C98F0C"/><path d="M15 75q50-25 100 0t110-5" stroke="#C13B5A"/></g><g fill="none" stroke="#fff" stroke-width="2" opacity=".5"><path d="M20 22q50-25 100 0t100-5M20 47q50-25 100 0t100-5M20 72q50-25 100 0t100-5"/></g>',
+ P+pd
+];
+document.querySelectorAll('[data-t]').forEach(el=>{const k=+el.dataset.t;el.innerHTML=svg(techArts[k],['akuarel','plakat','impasto','pointilis'][k],90)});
+
+// Studio
+const cv=document.getElementById('cv'),ctx=cv.getContext('2d');
+const palette=['#2B44B5','#C13B5A','#E0A81C','#1B7F68','#7A3FA0','#1B2233'];
+let mode='akuarel',color=palette[0],down=false,last=null;
+const desc={akuarel:'Akuarel: sapuan tipis dan tembus. Gerakkan berulang di tempat yang sama agar warnanya menebal pelan-pelan.',plakat:'Plakat: warna pekat dan menutup. Coba timpa sapuan warna lain.',pointilis:'Pointilis: tiap sentuhan menjadi titik. Gunakan beberapa warna berdampingan.',hapus:'Penghapus: hapus bagian yang ingin kamu ulangi.'};
+const cols=document.getElementById('cols'),mh=document.getElementById('mh');
+palette.forEach((c,i)=>{const b=document.createElement('button');b.className='dot';b.style.background=c;b.setAttribute('aria-label','Warna '+(i+1));b.setAttribute('aria-pressed',i===0);b.onclick=()=>{color=c;[...cols.children].forEach(x=>x.setAttribute('aria-pressed',x===b));if(mode==='hapus')setMode('akuarel')};cols.appendChild(b)});
+function setMode(m){mode=m;document.querySelectorAll('[data-m]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.m===m));mh.textContent=desc[m]}
+document.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>setMode(b.dataset.m));
+setMode('akuarel');
+document.getElementById('clr').onclick=()=>ctx.clearRect(0,0,cv.width,cv.height);
+function pos(e){const r=cv.getBoundingClientRect();return{x:(e.clientX-r.left)*cv.width/r.width,y:(e.clientY-r.top)*cv.height/r.height}}
+function stamp(p){
+  ctx.globalCompositeOperation='source-over';
+  if(mode==='akuarel'){ctx.globalAlpha=.07;ctx.fillStyle=color;ctx.beginPath();ctx.arc(p.x,p.y,22,0,7);ctx.fill()}
+  else if(mode==='plakat'){ctx.globalAlpha=1;ctx.fillStyle=color;ctx.beginPath();ctx.arc(p.x,p.y,12,0,7);ctx.fill()}
+  else if(mode==='pointilis'){ctx.globalAlpha=1;ctx.fillStyle=color;ctx.beginPath();ctx.arc(p.x+(Math.random()-.5)*14,p.y+(Math.random()-.5)*14,3.5,0,7);ctx.fill()}
+  else{ctx.globalCompositeOperation='destination-out';ctx.globalAlpha=1;ctx.beginPath();ctx.arc(p.x,p.y,24,0,7);ctx.fill()}
+}
+function line(a,b){const d=Math.hypot(b.x-a.x,b.y-a.y),s=mode==='pointilis'?10:4,n=Math.max(1,Math.floor(d/s));for(let i=1;i<=n;i++)stamp({x:a.x+(b.x-a.x)*i/n,y:a.y+(b.y-a.y)*i/n})}
+cv.addEventListener('pointerdown',e=>{down=true;cv.setPointerCapture(e.pointerId);last=pos(e);stamp(last)});
+cv.addEventListener('pointermove',e=>{if(!down)return;const p=pos(e);line(last,p);last=p});
+['pointerup','pointercancel'].forEach(t=>cv.addEventListener(t,()=>down=false));
+
+// Kuis
+const qs=[
+{q:"Lukisan cap tangan dan babi rusa di Leang-Leang, Sulawesi Selatan, berasal dari masa…",o:["Renaisans","Prasejarah","Impresionisme","Kubisme"],a:1,e:"Lukisan gua Leang-Leang dibuat manusia purba pada masa prasejarah."},
+{q:"Teknik melukis yang sapuannya tipis sehingga warna di bawahnya masih tembus disebut…",o:["Opaque","Impasto","Transparan","Pointilis"],a:2,e:"Teknik transparan, contohnya akuarel, memakai cat encer yang tembus pandang."},
+{q:"Pelukis yang menumpuk cat tebal hingga bertekstur, seperti pada The Starry Night, adalah…",o:["Vincent van Gogh","Leonardo da Vinci","Claude Monet","Rembrandt"],a:0,e:"Van Gogh dikenal dengan teknik impasto yang tebal dan ekspresif."},
+{q:"Lukisan yang dibentuk dari titik-titik kecil warna murni menggunakan teknik…",o:["Plakat","Akuarel","Dusel","Pointilis"],a:3,e:"Pointilis menyusun gambar dari titik-titik warna yang menyatu di mata penonton."},
+{q:"Penangkapan Pangeran Diponegoro adalah karya pelukis…",o:["Affandi","Raden Saleh","S. Sudjojono","Basuki Abdullah"],a:1,e:"Raden Saleh melukisnya pada 1857 dengan gaya Romantik."},
+{q:"PERSAGI, kelompok pelukis yang mendorong lukisan jujur tentang kehidupan rakyat, dibentuk tahun…",o:["1838","1938","1958","1978"],a:1,e:"PERSAGI berdiri tahun 1938 dengan S. Sudjojono sebagai tokoh pentingnya."}
+];
+const quiz=document.getElementById('quiz');let qi=0,sc=0;
+function render(){
+  if(qi>=qs.length){const m=sc===qs.length?'Luar biasa, semua benar.':sc>=4?'Bagus. Ulangi bagian sejarah untuk soal yang masih salah.':'Pelajari lagi materi sejarah dan teknik di atas, lalu coba kuis ini lagi.';
+    quiz.innerHTML='<p class="score">'+sc+' / '+qs.length+'</p><p>'+m+'</p><button class="btn" id="again">Ulangi kuis</button>';
+    document.getElementById('again').onclick=()=>{qi=0;sc=0;render()};return}
+  const c=qs[qi];
+  quiz.innerHTML='<div class="prog"><i style="width:'+(qi/qs.length*100)+'%"></i></div><p><strong>Soal '+(qi+1)+' dari '+qs.length+'</strong></p><h3>'+c.q+'</h3><div class="opts"></div><p class="fb" aria-live="polite"></p><button class="btn" id="nx" hidden>'+(qi===qs.length-1?'Lihat skor':'Soal berikutnya')+'</button>';
+  const box=quiz.querySelector('.opts'),fb=quiz.querySelector('.fb'),nx=document.getElementById('nx');
+  c.o.forEach((t,i)=>{const b=document.createElement('button');b.textContent=t;b.onclick=()=>{
+    box.querySelectorAll('button').forEach((x,j)=>{x.disabled=true;if(j===c.a)x.classList.add('right')});
+    if(i===c.a){sc++;fb.textContent='Benar. '+c.e}else{b.classList.add('wrong');fb.textContent='Belum tepat. '+c.e}
+    nx.hidden=false;nx.focus()};box.appendChild(b)});
+  nx.onclick=()=>{qi++;render()};
+}
+render();
+</script>
+</body>
+</html>
